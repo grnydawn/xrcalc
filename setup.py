@@ -5,7 +5,7 @@ def main():
     from setuptools import setup
     from xrcalc import XarrayCalculator as calc
 
-    install_requires = ["microapp>=0.1.12", "xarray"]
+    install_requires = ["microapp>=0.1.12", "xarray", "matplotlib"]
 
     setup(
         name=calc._name_,

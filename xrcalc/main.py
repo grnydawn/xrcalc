@@ -41,14 +41,14 @@ for x, modname, y in pkgutil.walk_packages([pkgpath]):
                 else:
                     members[mname] = [obj]
 
-    except ModuleNotFoundError:
+    except ImportError:
         pass
 
 
 class XarrayCalculator(App):
 
     _name_ = "xrcalc"
-    _version_ = "0.1.2"
+    _version_ = "0.1.6"
     _description_ = "Microapp xarray calculator"
     _long_description_ = "Microapp xarray calculator"
     _author_ = "Youngsung Kim"
@@ -94,11 +94,16 @@ class XarrayCalculator(App):
                 objpath = darg["_"].split(".")
                 objname = objpath[0].lower() 
 
-                if objname not in members:
+                if objname in members:
+                    obj = members[objname][0]
+
+                elif objname in lenv:
+                    obj = lenv[objname]
+
+                else:
                     print("'%s' is not found." % objpath[0])
                     return
 
-                obj = members[objname][0]
                 objorgname = getattr(obj, "__name__", objname)
 
                 if len(objpath) > 1:
