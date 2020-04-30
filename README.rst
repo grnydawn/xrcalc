@@ -2,7 +2,7 @@ xrcalc
 ==========
 xarray command-line calculation tool
 
-**xrcalc** reads command-line arguments as Python statements and executes them on Python interpreter. The argument is quite similar to "the code cell of Jupyter notebook" while the arguments resides on a shell instead of "notebook". Especially **xrcalc** is specialised to support xarray calculation by pre-loading xarray and related modules.
+**xrcalc** reads command-line arguments as Python statements and executes them on Python interpreter. The argument is quite similar to "the code cell of Jupyter notebook" while the arguments resides on a shell instead of "notebook". Especially **xrcalc** is specialized to support xarray calculation by pre-loading xarray and related modules.
 
 The goal of "command-line as Python statement" approach is to achieve an immediate response with minimal effort. Thanks to the nautre of terminal user interface, the command-action-response cycle is simple, intuitive, and fast.
 
@@ -56,7 +56,7 @@ This tool is invoked by a super-command of "microapp", which is installed with *
 **xrcalc** basic usage 
 -------------------------------
 
-The following command create a list and display it on screen. The option "-s" or "--show" uses Python "print" function.::
+The following command creates a list and displays it on screen. The option "-s" or "--show" uses Python "print" function.::
 
     >>> microapp xrcalc 'x = [1,2,3]' -s x
     [1, 2, 3]
@@ -88,11 +88,11 @@ By using "-d" or "--doc" option, a short description of the data type can be dis
     array([1, 2, 3])
     Dimensions without coordinates: dim_0
 
-By using plotting feature of **xrcalc**, a plot can be created easily using "-p" or "--plot" option::
+By using plotting feature of **xarray**, a plot can be created easily using "-p" or "--plot" option::
 
     >>> microapp xrcalc 'x = xr.DataArray([1,2,3])' -p x
 
-"-d" option produces documentation of the data type of  the variable "x", which DataArray of xarray.::
+"-d" option produces documentation of the data type of  the variable "x", which is DataArray of xarray.::
 
     >>> microapp xrcalc 'x = xr.DataArray([1,2,3])' -d x
 
