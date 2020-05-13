@@ -144,7 +144,25 @@ class XarrayCalculator(App):
                     plotdata, rem = val, ""
 
                 (vargs, kwargs), out = funcargseval(rem, self._env)
-                lenv[plotdata].plot(*vargs, **kwargs)
-            matplotlib.pyplot.show()
+
+                if hasattr(lenv[plotdata, "plot"):
+                    lenv[plotdata].plot(*vargs, **kwargs)
+                    matplotlib.pyplot.show()
+
+                else:
+                    print("'%s' does not support plotting: %s" % lenv[plotdata])
+
+        del lenv["xarray"]
+        del lenv["xr"]
+        del lenv["numpy"]
+        del lenv["np"]
+        del lenv["matplotlib"]
+        del lenv["mpl"]
+        del lenv["pyplot"]
+        del lenv["plt"]
+
+        for a in lenv:
+            if a.startswith("_"):
+                del lenv[a]
 
         self.add_forward(data=lenv)
